@@ -100,3 +100,17 @@ hr {
 input, select {
     vertical-align:middle;
 }
+
+/* add reset */
+img {
+    vertical-align: bottom;
+}
+button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+}
