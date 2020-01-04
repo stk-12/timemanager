@@ -1,0 +1,49 @@
+//------------------------------------------------------------------------------
+//  
+//	変数
+//  
+//------------------------------------------------------------------------------
+// ブレイクポイント
+$sp: 'max-width: 750px';
+$tab: 'max-width: 1024px';
+$pc: 'min-width: 751px';
+
+//------------------------------------------------------------------------------
+//
+//	mixin
+//  
+//------------------------------------------------------------------------------
+
+// メディアクエリ
+@mixin sp {
+	@media screen and ($sp) {
+		@content;
+	}
+}
+@mixin tab {
+	@media screen and ($tab) {
+		@content;
+	}
+}
+@mixin pc {
+	@media print, screen and ($pc) {
+		@content;
+	}
+}
+
+@mixin max-screen($breakpoint) {
+  @media print, screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
+@mixin min-screen($breakpoint) {
+  @media print, screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+@mixin screen($breakpoint-min, $breakpoint-max) {
+  @media print, screen and (min-width: $breakpoint-min) and (max-width: $breakpoint-max) {
+    @content;
+  }
+}
+
