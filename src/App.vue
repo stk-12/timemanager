@@ -3,17 +3,28 @@
     <div class="tasks">
       <Task />
     </div>
-    <button class="add__btn"><span>Add Task</span></button>
+    <!-- <div class="add">
+      <div class="add__inner">
+        <div class="add__input">
+          <input type="text">
+          <button class="add__input__btn">ADD</button>
+        </div>
+        <button class="add__btn"><span>Add Task</span></button>
+      </div>
+    </div> -->
+    <AddTask />
   </div>
 </template>
 
 <script>
 import Task from './components/Task.vue'
+import AddTask from './components/AddTask.vue'
 
 export default {
   name: 'app',
   components: {
-    Task
+    Task,
+    AddTask
   }
 }
 </script>

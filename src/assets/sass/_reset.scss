@@ -105,6 +105,13 @@ input, select {
 img {
     vertical-align: bottom;
 }
+input {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    background: none;
+}
 button {
     -webkit-appearance: none;
     -moz-appearance: none;
