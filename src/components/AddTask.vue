@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'Addtask',
+  name: 'AddTask',
   data(){
     return {
       isActive: false

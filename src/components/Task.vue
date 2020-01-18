@@ -1,22 +1,20 @@
 <template>
   <div class="task">
-    <div class="task__inner">
-      <p class="task__name">{{ taskName }}</p>
-      <div class="timer">
-        <div class="timer__inner">
-          <div class="timer__time">
-            <!-- <p class="timer__time-total">{{ timeTotal }}</p> -->
-            <p class="timer__time-state">{{ timeState }}</p>
-          </div>
-          <div class="timer__button">
-            <button class="timer__button-start" v-on:click="countStart" v-if="!isMeasuring"><img src="/images/icon_play.svg" alt="play"></button>
-            <button class="timer__button-stop" v-on:click="countStop" v-if="isMeasuring"><img src="/images/icon_stop.svg" alt="stop"></button>
+      <div class="task__inner">
+        <p class="task__name">{{ taskName }}</p>
+        <div class="timer">
+          <div class="timer__inner">
+            <div class="timer__time">
+              <p class="timer__time-state">{{ timeState }}</p>
+            </div>
+            <div class="timer__button">
+              <button class="timer__button-start" v-on:click="countStart" v-if="!isMeasuring"><img src="/images/icon_play.svg" alt="play"></button>
+              <button class="timer__button-stop" v-on:click="countStop" v-if="isMeasuring"><img src="/images/icon_stop.svg" alt="stop"></button>
+            </div>
           </div>
         </div>
       </div>
-      <!-- <pre>{{ $data }}</pre> -->
     </div>
-  </div>
 </template>
 
 <script>
@@ -65,6 +63,9 @@ export default {
 <style lang="scss" scoped>
 .task {
   background: #fff;
+  & + .task {
+    margin: 15px 0 0;
+  }
   &__inner {
     padding: 20px;
     display: flex;
