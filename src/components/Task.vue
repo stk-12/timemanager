@@ -1,7 +1,10 @@
 <template>
   <div class="task">
       <div class="task__inner">
-        <p class="task__name">{{ taskName }}</p>
+        <div class="task__name">
+          <input type="text" class="task__name-input" placeholder="Enter the task" v-model="taskName" v-if="isInput">
+          <p class="task__name-text" v-if="!isInput">{{ taskName }}</p>
+        </div>
         <div class="timer">
           <div class="timer__inner">
             <div class="timer__time">
@@ -22,7 +25,8 @@ export default {
   name: 'task',
   data(){
     return {
-      taskName: 'タスク名',
+      taskName: '',
+      isInput: true,
       isMeasuring: false,
       timeTotal: 0,
       timeState: '00:00:00',
@@ -71,6 +75,14 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  &__name {
+    width: 80%;
+    text-align: left;
+    &-input {
+      width: 100%;
+      font-size: 18px;
+    }
   }
 }
 .timer {

@@ -1,26 +1,30 @@
 <template>
   <div class="add">
       <div class="add__inner">
-        <div class="add__input" v-if="isActive">
+        <!-- <div class="add__input" v-if="isActive">
           <input type="text">
           <button class="add__input__button">ADD</button>
-        </div>
-        <button class="add__button" v-on:click="addTaskArea" v-if="!isActive"><span>Add Task</span></button>
+        </div> -->
+        <!-- <button class="add__button" v-on:click="addTaskArea" v-if="!isActive"><span>Add Task</span></button> -->
+        <button class="add__button" v-on:click="addTask" v-if="isActive"><span>Add Task</span></button>
       </div>
     </div>
 </template>
 
 <script>
 export default {
-  name: 'AddTask',
+  name: 'addTask',
   data(){
     return {
-      isActive: false
+      isActive: true
     }
   },
   methods: {
-    addTaskArea: function(){
-      this.isActive = true
+    // addTaskArea: function(){
+    //   this.isActive = true
+    // }
+    addTask: function(){
+      
     }
   }
 }
