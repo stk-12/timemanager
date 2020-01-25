@@ -6,17 +6,20 @@
           <button class="add__input__button">ADD</button>
         </div> -->
         <!-- <button class="add__button" v-on:click="addTaskArea" v-if="!isActive"><span>Add Task</span></button> -->
-        <button class="add__button" v-on:click="addTask" v-if="isActive"><span>Add Task</span></button>
+        <button class="add__button" v-on:click="addTask"><span>Add Task</span></button>
       </div>
     </div>
 </template>
 
 <script>
+import Vue from 'vue'
+import Task from './Task.vue'
+
 export default {
   name: 'addTask',
   data(){
     return {
-      isActive: true
+      //isActive: true
     }
   },
   methods: {
@@ -24,7 +27,11 @@ export default {
     //   this.isActive = true
     // }
     addTask: function(){
-      
+      var addPlace = document.querySelector('.task-list');
+      var taskComponent = Vue.extend(Task);
+      var instance = new taskComponent();
+      instance.$mount();
+      addPlace.append(instance.$el);
     }
   }
 }
@@ -35,21 +42,21 @@ export default {
   &__inner {
     padding: 20px;
   }
-  &__input {
-    display: flex;
-    justify-content: center;
-    input {
-      background: #fff;
-      padding: 15px;
-      font-size: 16px;
-    }
-    &__button {
-      background: #000;
-      color: #fff;
-      font-size: 16px;
-      padding: 15px;
-    }
-  }
+  // &__input {
+  //   display: flex;
+  //   justify-content: center;
+  //   input {
+  //     background: #fff;
+  //     padding: 15px;
+  //     font-size: 16px;
+  //   }
+  //   &__button {
+  //     background: #000;
+  //     color: #fff;
+  //     font-size: 16px;
+  //     padding: 15px;
+  //   }
+  // }
   &__button {
     background: #000;
     padding: 10px 15px;
