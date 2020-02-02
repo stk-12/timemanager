@@ -16,6 +16,16 @@
             </div>
           </div>
         </div>
+        <div class="menu">
+          <div class="menu__inner">
+            <button class="menu__button" v-on:click="showMenu"><img src="/images/icon_menu.svg" alt="menu"></button>
+            <div class="menu__content" v-show="isShowMenu">
+              <ul class="menu__lists">
+                <li v-on:click="deleteTask">Delete Task</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 </template>
@@ -32,7 +42,8 @@ export default {
       timeState: '00:00:00',
       startTime: 0,
       //time: ''
-      timerId: ''
+      timerId: '',
+      isShowMenu: false
     }
   },
   methods: {
@@ -59,6 +70,17 @@ export default {
       this.timerId = setTimeout(() => {
         this.countTime();
       }, 10);
+    },
+    showMenu: function(){
+      if(!this.isShowMenu){
+        this.isShowMenu = true
+      } else {
+        this.isShowMenu = false
+      }
+    },
+    deleteTask: function(){
+      this.$destroy();
+      this.$el.parentNode.removeChild(this.$el);
     }
   }
 }
@@ -71,7 +93,7 @@ export default {
     margin: 15px 0 0;
   }
   &__inner {
-    padding: 20px;
+    padding: 20px 5px 20px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -97,9 +119,46 @@ export default {
     }
   }
   &__button {
+    button {
+      cursor: pointer;
+    }
     img {
       width: 30px;
       height: 30px;
+    }
+  }
+}
+.menu {
+  width: 40px;
+  &__inner {
+    position: relative;
+  }
+  &__button {
+    cursor: pointer;
+    opacity: 0.3;
+    &:hover {
+      opacity: 1;
+    }
+    img {
+      width: 20px;
+    }
+  }
+  &__content {
+    width: 120px;
+    position: absolute;
+    background: #fff;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
+    right: 0;
+    top: 115%;
+  }
+  &__lists {
+    li {
+      padding: 8px 12px;
+      list-style: none;
+      cursor: pointer;
+      &:hover {
+        color: #ff0000;
+      }
     }
   }
 }
